@@ -7,7 +7,7 @@ import Modal from './BoxDatVe/ChildComponent/Modal';
 import axios from 'axios';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../shared/context/auth-context';
-import FilterSearch from './Admin/FilterSearch';
+import FilterSearch from './admin/FilterSearch';
 
 import './SearchByWeek.css';
 
@@ -87,7 +87,7 @@ function SearchByWeek({ setIsLoading, setError }) {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.message);
+        setError(err.response.data.message);
       });
   };
 
@@ -352,7 +352,7 @@ function SearchByWeek({ setIsLoading, setError }) {
       .catch((err) => {
         setShowFilter(false);
         setIsLoading(false);
-        setError(err.message);
+        setError(err.response.data.message);
       });
   };
 
@@ -370,53 +370,53 @@ function SearchByWeek({ setIsLoading, setError }) {
         setShowFilter={setShowFilter}
         filterData={filterData}
       />
-      <div className="SearchByWeek-header">
-        <div className="header-content">
+      <div className='SearchByWeek-header'>
+        <div className='header-content'>
           <p>Kết quả tìm kiếm cho "chuyến bay một chiều"</p>
-          <div className="header-user">
+          <div className='header-user'>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              className="header-icon-user"
-              focusable="false"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+              xmlns='http://www.w3.org/2000/svg'
+              width='22'
+              height='22'
+              className='header-icon-user'
+              focusable='false'
+              viewBox='0 0 24 24'
+              aria-hidden='true'
             >
-              <g data-name="Group 28011">
+              <g data-name='Group 28011'>
                 <path
-                  data-name="Rectangle 4480"
-                  fill="none"
-                  d="M0 0h24v24H0z"
+                  data-name='Rectangle 4480'
+                  fill='none'
+                  d='M0 0h24v24H0z'
                 ></path>
-                <g data-name="Vector Smart Object21">
+                <g data-name='Vector Smart Object21'>
                   <g
-                    data-name="Group 21"
-                    transform="translate(2 4)"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    data-name='Group 21'
+                    transform='translate(2 4)'
+                    fill='none'
+                    stroke='currentColor'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                   >
                     <path
-                      data-name="Path 44"
-                      d="M15.605 4.332a2.62 2.62 0 11-5.232 0V2.757a2.62 2.62 0 115.232 0z"
+                      data-name='Path 44'
+                      d='M15.605 4.332a2.62 2.62 0 11-5.232 0V2.757a2.62 2.62 0 115.232 0z'
                     ></path>
                     <ellipse
-                      data-name="Ellipse 9"
-                      cx="2.18"
-                      cy="2.216"
-                      rx="2.18"
-                      ry="2.216"
-                      transform="translate(3.84 .443)"
+                      data-name='Ellipse 9'
+                      cx='2.18'
+                      cy='2.216'
+                      rx='2.18'
+                      ry='2.216'
+                      transform='translate(3.84 .443)'
                     ></ellipse>
                     <path
-                      data-name="Path 45"
-                      d="M8.805 10.302a5.085 5.085 0 00-3.653-1.45 5.261 5.261 0 00-5.136 4.3.872.872 0 00.863 1.019h5"
+                      data-name='Path 45'
+                      d='M8.805 10.302a5.085 5.085 0 00-3.653-1.45 5.261 5.261 0 00-5.136 4.3.872.872 0 00.863 1.019h5'
                     ></path>
                     <path
-                      data-name="Path 46"
-                      d="M12.984 9.734h0a7.015 7.015 0 00-6.907 6.082.886.886 0 00.871 1.007H19.02a.886.886 0 00.871-1.007 7.015 7.015 0 00-6.907-6.082z"
+                      data-name='Path 46'
+                      d='M12.984 9.734h0a7.015 7.015 0 00-6.907 6.082.886.886 0 00.871 1.007H19.02a.886.886 0 00.871-1.007 7.015 7.015 0 00-6.907-6.082z'
                     ></path>
                   </g>
                 </g>
@@ -433,71 +433,71 @@ function SearchByWeek({ setIsLoading, setError }) {
             ) : null}
           </div>
         </div>
-        <div className="header-btn" onClick={() => setShowModal((e) => !e)}>
+        <div className='header-btn' onClick={() => setShowModal((e) => !e)}>
           <span>Thay đổi tìm kiếm</span>
         </div>
       </div>
-      <div className="SearchByWeek-main">
-        <div className="main-flight">
-          <h4 className="main-flight-title">Chuyến bay</h4>
-          <span className="main-flight-province">
+      <div className='SearchByWeek-main'>
+        <div className='main-flight'>
+          <h4 className='main-flight-title'>Chuyến bay</h4>
+          <span className='main-flight-province'>
             {ddkh} &rarr; {ddhc}
           </span>
-          <p className="main-flight-time">{tgkh}</p>
+          <p className='main-flight-time'>{tgkh}</p>
         </div>
-        <div className="calendar-week">
+        <div className='calendar-week'>
           {/* nut */}
-          <div className="calendar-button prev" onClick={getPrevWeek}>
+          <div className='calendar-button prev' onClick={getPrevWeek}>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="36"
-              className="button-icon"
-              focusable="false"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+              xmlns='http://www.w3.org/2000/svg'
+              width='36'
+              height='36'
+              className='button-icon'
+              focusable='false'
+              viewBox='0 0 24 24'
+              aria-hidden='true'
             >
-              <g data-name="Group 28852">
+              <g data-name='Group 28852'>
                 <path
-                  data-name="Rectangle 4424"
-                  fill="none"
-                  d="M0 24V0h24v24z"
+                  data-name='Rectangle 4424'
+                  fill='none'
+                  d='M0 24V0h24v24z'
                 ></path>
-                <g data-name="Group 27961">
+                <g data-name='Group 27961'>
                   <path
-                    data-name="Path 20155"
-                    d="M9.098 11.761L14.759 6.1a.34.34 0 01.48.48L9.82 12l5.419 5.419a.338.338 0 010 .481.342.342 0 01-.239.1.331.331 0 01-.239-.1L9.1 12.239a.338.338 0 01-.002-.478z"
+                    data-name='Path 20155'
+                    d='M9.098 11.761L14.759 6.1a.34.34 0 01.48.48L9.82 12l5.419 5.419a.338.338 0 010 .481.342.342 0 01-.239.1.331.331 0 01-.239-.1L9.1 12.239a.338.338 0 01-.002-.478z'
                   ></path>
                 </g>
               </g>
             </svg>
           </div>
-          <div className="calendar-button next" onClick={getNextWeek}>
+          <div className='calendar-button next' onClick={getNextWeek}>
             <svg
-              data-name="Group 28853"
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="36"
-              className="button-icon"
-              focusable="false"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+              data-name='Group 28853'
+              xmlns='http://www.w3.org/2000/svg'
+              width='36'
+              height='36'
+              className='button-icon'
+              focusable='false'
+              viewBox='0 0 24 24'
+              aria-hidden='true'
             >
               <path
-                data-name="Rectangle 4424"
-                fill="none"
-                d="M0 24V0h24v24z"
+                data-name='Rectangle 4424'
+                fill='none'
+                d='M0 24V0h24v24z'
               ></path>
-              <g data-name="Group 27961">
+              <g data-name='Group 27961'>
                 <path
-                  data-name="Path 20155"
-                  d="M15.241 11.761L9.58 6.1a.34.34 0 00-.48.48L14.519 12 9.1 17.419a.338.338 0 000 .48.342.342 0 00.239.1.331.331 0 00.239-.1l5.661-5.66a.338.338 0 00.002-.478z"
+                  data-name='Path 20155'
+                  d='M15.241 11.761L9.58 6.1a.34.34 0 00-.48.48L14.519 12 9.1 17.419a.338.338 0 000 .48.342.342 0 00.239.1.331.331 0 00.239-.1l5.661-5.66a.338.338 0 00.002-.478z'
                 ></path>
               </g>
             </svg>
           </div>
           {/*display*/}
-          <ul className="list-date">
+          <ul className='list-date'>
             {displayGetDay(selectedDate).map((x, index) =>
               compare(x, todayFormatted) >= 0 ? (
                 <li
@@ -519,7 +519,7 @@ function SearchByWeek({ setIsLoading, setError }) {
                   </p>
                 </li>
               ) : (
-                <li key={index} className="date-item disiable">
+                <li key={index} className='date-item disiable'>
                   {x}
                   <p>-</p>
                 </li>
@@ -527,32 +527,32 @@ function SearchByWeek({ setIsLoading, setError }) {
             )}
           </ul>
         </div>
-        <div className="main-filter">
-          <div className="filter-plane-ticket">
-            <div className="filter-search">
+        <div className='main-filter'>
+          <div className='filter-plane-ticket'>
+            <div className='filter-search'>
               {ticketList.length === 0 && (
-                <span className="btn-filter-search disable">
+                <span className='btn-filter-search disable'>
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    className="filter-icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='20'
+                    height='20'
+                    className='filter-icon'
+                    focusable='false'
+                    viewBox='0 0 24 24'
+                    aria-hidden='true'
                   >
-                    <g data-name="Group 28546">
+                    <g data-name='Group 28546'>
                       <path
-                        data-name="Rectangle 4593"
-                        fill="none"
-                        d="M0 0h24v24H0z"
+                        data-name='Rectangle 4593'
+                        fill='none'
+                        d='M0 0h24v24H0z'
                       ></path>
-                      <g data-name="Group 28534">
+                      <g data-name='Group 28534'>
                         <path
-                          data-name="Path 20368"
-                          d="M10.125 21a.367.367 0 01-.185-.049.375.375 0 01-.191-.326v-7.576a1.124 1.124 0 00-.378-.841L3.628 7.106A1.878 1.878 0 013 5.7V4.125A1.126 1.126 0 014.125 3h15.75A1.126 1.126 0 0121 4.125V5.7a1.878 1.878 0 01-.629 1.406l-5.743 5.1a1.124 1.124 0 00-.378.84v4.9a1.13 1.13 0 01-.546.965l-3.387 2.035a.366.366 0 01-.192.054zm-6-17.25a.376.376 0 00-.375.375V5.7a1.126 1.126 0 00.376.844l5.744 5.1a1.878 1.878 0 01.63 1.4v6.914l2.819-1.69a.379.379 0 00.182-.322v-4.9a1.877 1.877 0 01.63-1.4l5.743-5.1a1.129 1.129 0 00.376-.846V4.125a.376.376 0 00-.375-.375z"
-                          stroke="currentColor"
-                          strokeWidth="0.3"
+                          data-name='Path 20368'
+                          d='M10.125 21a.367.367 0 01-.185-.049.375.375 0 01-.191-.326v-7.576a1.124 1.124 0 00-.378-.841L3.628 7.106A1.878 1.878 0 013 5.7V4.125A1.126 1.126 0 014.125 3h15.75A1.126 1.126 0 0121 4.125V5.7a1.878 1.878 0 01-.629 1.406l-5.743 5.1a1.124 1.124 0 00-.378.84v4.9a1.13 1.13 0 01-.546.965l-3.387 2.035a.366.366 0 01-.192.054zm-6-17.25a.376.376 0 00-.375.375V5.7a1.126 1.126 0 00.376.844l5.744 5.1a1.878 1.878 0 01.63 1.4v6.914l2.819-1.69a.379.379 0 00.182-.322v-4.9a1.877 1.877 0 01.63-1.4l5.743-5.1a1.129 1.129 0 00.376-.846V4.125a.376.376 0 00-.375-.375z'
+                          stroke='currentColor'
+                          strokeWidth='0.3'
                         ></path>
                       </g>
                     </g>
@@ -562,30 +562,30 @@ function SearchByWeek({ setIsLoading, setError }) {
               )}
               {ticketList.length !== 0 && (
                 <span
-                  className="btn-filter-search"
+                  className='btn-filter-search'
                   onClick={() => setShowFilter(true)}
                 >
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    className="filter-icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='20'
+                    height='20'
+                    className='filter-icon'
+                    focusable='false'
+                    viewBox='0 0 24 24'
+                    aria-hidden='true'
                   >
-                    <g data-name="Group 28546">
+                    <g data-name='Group 28546'>
                       <path
-                        data-name="Rectangle 4593"
-                        fill="none"
-                        d="M0 0h24v24H0z"
+                        data-name='Rectangle 4593'
+                        fill='none'
+                        d='M0 0h24v24H0z'
                       ></path>
-                      <g data-name="Group 28534">
+                      <g data-name='Group 28534'>
                         <path
-                          data-name="Path 20368"
-                          d="M10.125 21a.367.367 0 01-.185-.049.375.375 0 01-.191-.326v-7.576a1.124 1.124 0 00-.378-.841L3.628 7.106A1.878 1.878 0 013 5.7V4.125A1.126 1.126 0 014.125 3h15.75A1.126 1.126 0 0121 4.125V5.7a1.878 1.878 0 01-.629 1.406l-5.743 5.1a1.124 1.124 0 00-.378.84v4.9a1.13 1.13 0 01-.546.965l-3.387 2.035a.366.366 0 01-.192.054zm-6-17.25a.376.376 0 00-.375.375V5.7a1.126 1.126 0 00.376.844l5.744 5.1a1.878 1.878 0 01.63 1.4v6.914l2.819-1.69a.379.379 0 00.182-.322v-4.9a1.877 1.877 0 01.63-1.4l5.743-5.1a1.129 1.129 0 00.376-.846V4.125a.376.376 0 00-.375-.375z"
-                          stroke="currentColor"
-                          strokeWidth="0.3"
+                          data-name='Path 20368'
+                          d='M10.125 21a.367.367 0 01-.185-.049.375.375 0 01-.191-.326v-7.576a1.124 1.124 0 00-.378-.841L3.628 7.106A1.878 1.878 0 013 5.7V4.125A1.126 1.126 0 014.125 3h15.75A1.126 1.126 0 0121 4.125V5.7a1.878 1.878 0 01-.629 1.406l-5.743 5.1a1.124 1.124 0 00-.378.84v4.9a1.13 1.13 0 01-.546.965l-3.387 2.035a.366.366 0 01-.192.054zm-6-17.25a.376.376 0 00-.375.375V5.7a1.126 1.126 0 00.376.844l5.744 5.1a1.878 1.878 0 01.63 1.4v6.914l2.819-1.69a.379.379 0 00.182-.322v-4.9a1.877 1.877 0 01.63-1.4l5.743-5.1a1.129 1.129 0 00.376-.846V4.125a.376.376 0 00-.375-.375z'
+                          stroke='currentColor'
+                          strokeWidth='0.3'
                         ></path>
                       </g>
                     </g>
@@ -595,32 +595,32 @@ function SearchByWeek({ setIsLoading, setError }) {
               )}
             </div>
           </div>
-          <div className="main-sort">
-            <div className="Sort-week">
-              <span className="Sort-text-week">Sắp xếp theo: </span>
+          <div className='main-sort'>
+            <div className='Sort-week'>
+              <span className='Sort-text-week'>Sắp xếp theo: </span>
               {ticketList.length === 0 && (
                 <span
-                  className="display-Sort-week disable"
+                  className='display-Sort-week disable'
                   // onClick={() => setShowSort((pre) => !pre)}
                 >
                   {typeSort}
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    className="sort-icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='24'
+                    height='24'
+                    className='sort-icon'
+                    focusable='false'
+                    viewBox='0 0 24 24'
+                    aria-hidden='true'
                   >
-                    <g data-name="Group 28796">
+                    <g data-name='Group 28796'>
                       <path
-                        data-name="Rectangle 4596"
-                        fill="none"
-                        d="M0 0h24v24H0z"
+                        data-name='Rectangle 4596'
+                        fill='none'
+                        d='M0 0h24v24H0z'
                       ></path>
-                      <g data-name="Group 28778">
-                        <path data-name="Path 20527" d="M7 10l5 5 5-5z"></path>
+                      <g data-name='Group 28778'>
+                        <path data-name='Path 20527' d='M7 10l5 5 5-5z'></path>
                       </g>
                     </g>
                   </svg>
@@ -628,27 +628,27 @@ function SearchByWeek({ setIsLoading, setError }) {
               )}
               {ticketList.length !== 0 && (
                 <span
-                  className="display-Sort-week"
+                  className='display-Sort-week'
                   onClick={() => setShowSort((pre) => !pre)}
                 >
                   {typeSort}
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    className="sort-icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='24'
+                    height='24'
+                    className='sort-icon'
+                    focusable='false'
+                    viewBox='0 0 24 24'
+                    aria-hidden='true'
                   >
-                    <g data-name="Group 28796">
+                    <g data-name='Group 28796'>
                       <path
-                        data-name="Rectangle 4596"
-                        fill="none"
-                        d="M0 0h24v24H0z"
+                        data-name='Rectangle 4596'
+                        fill='none'
+                        d='M0 0h24v24H0z'
                       ></path>
-                      <g data-name="Group 28778">
-                        <path data-name="Path 20527" d="M7 10l5 5 5-5z"></path>
+                      <g data-name='Group 28778'>
+                        <path data-name='Path 20527' d='M7 10l5 5 5-5z'></path>
                       </g>
                     </g>
                   </svg>
@@ -656,29 +656,29 @@ function SearchByWeek({ setIsLoading, setError }) {
               )}
               {/* sort option */}
               {showSort ? (
-                <div className="BoxThoiGian">
+                <div className='BoxThoiGian'>
                   <div
-                    className="overlay"
+                    className='overlay'
                     ref={sortRef}
                     onClick={closeSortOption}
                   ></div>
-                  <div className="option-lish-sort">
-                    <span className="option-lish-item" onClick={handleTypeSort}>
+                  <div className='option-lish-sort'>
+                    <span className='option-lish-item' onClick={handleTypeSort}>
                       Giá tăng dần
                     </span>
-                    <span className="option-lish-item" onClick={handleTypeSort}>
+                    <span className='option-lish-item' onClick={handleTypeSort}>
                       Giá giảm dần
                     </span>
-                    <span className="option-lish-item" onClick={handleTypeSort}>
+                    <span className='option-lish-item' onClick={handleTypeSort}>
                       Giờ khởi hành sớm nhất
                     </span>
-                    <span className="option-lish-item" onClick={handleTypeSort}>
+                    <span className='option-lish-item' onClick={handleTypeSort}>
                       Giờ khởi hành muộn nhất
                     </span>
-                    <span className="option-lish-item" onClick={handleTypeSort}>
+                    <span className='option-lish-item' onClick={handleTypeSort}>
                       Giờ hạ cánh sớm nhất
                     </span>
-                    <span className="option-lish-item" onClick={handleTypeSort}>
+                    <span className='option-lish-item' onClick={handleTypeSort}>
                       Giờ hạ cánh muộn nhất
                     </span>
                   </div>
@@ -696,15 +696,15 @@ function SearchByWeek({ setIsLoading, setError }) {
       />
 
       {ticketList.length === 0 && (
-        <div className="noFlight">
-          <div className="noFlight-container">
-            <div className="noFlight-img">
+        <div className='noFlight'>
+          <div className='noFlight-container'>
+            <div className='noFlight-img'>
               <img
-                src="https://flight.hahalolo.com/405ac6caa3f629efdc0e6cf3bd0c821b.svg"
-                alt=""
+                src='https://flight.hahalolo.com/405ac6caa3f629efdc0e6cf3bd0c821b.svg'
+                alt=''
               />
             </div>
-            <div className="noFlight-content">
+            <div className='noFlight-content'>
               <h4>Không tìm thấy chuyến bay!</h4>
               <p>
                 Không tìm thấy kết quả tìm kiếm các chuyến bay ngày {valueDay}.
@@ -715,13 +715,13 @@ function SearchByWeek({ setIsLoading, setError }) {
         </div>
       )}
 
-      <div className="SearchByWeek-footer">
-        <div className="ticketBox-container">
-          <div className="ticketBox-item"></div>
-          <div className="chooseTicket">
-            <div className="chooseTicket-price">
-              <span className="sum-money">Tổng Tiền: </span>
-              <span className="color-red">
+      <div className='SearchByWeek-footer'>
+        <div className='ticketBox-container'>
+          <div className='ticketBox-item'></div>
+          <div className='chooseTicket'>
+            <div className='chooseTicket-price'>
+              <span className='sum-money'>Tổng Tiền: </span>
+              <span className='color-red'>
                 {choosenTicketInfo.IdVeMayBay === null
                   ? '0 ₫'
                   : moneyFormatter.format(
@@ -733,24 +733,24 @@ function SearchByWeek({ setIsLoading, setError }) {
                             (choosenTicketInfo.Thue / 100))
                     )}
               </span>
-              <span className="note">(Giá đã bao gồm thuế và phí)</span>
+              <span className='note'>(Giá đã bao gồm thuế và phí)</span>
             </div>
-            <div className="chooseTicket-put">
-              <span className="content">
+            <div className='chooseTicket-put'>
+              <span className='content'>
                 Đã chọn{' '}
-                <span className="quanlity">
+                <span className='quanlity'>
                   {' '}
                   {choosenTicketInfo.IdVeMayBay === null ? '0' : '1'}/1{' '}
                 </span>{' '}
                 Chuyến bay
               </span>
               {choosenTicketInfo.IdVeMayBay !== null && (
-                <span className="btn-put active" onClick={onBooking}>
+                <span className='btn-put active' onClick={onBooking}>
                   Đặt vé
                 </span>
               )}
               {choosenTicketInfo.IdVeMayBay === null && (
-                <span className="btn-put">Đặt vé</span>
+                <span className='btn-put'>Đặt vé</span>
               )}
             </div>
           </div>

@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useEffect, useContext } from 'react';
 
-import Table from '../../components/Admin/Table';
-import ModalAddTicket from '../../components/Admin/ModalAddTicket';
-import FilterSearch from '../../components/Admin/FilterSearch';
-import TicketList from '../../components/Admin/TicketList';
-import FlightUpdate from '../../components/Admin/FlightUpdate';
+import Table from '../../components/admin/Table';
+import ModalAddTicket from '../../components/admin/ModalAddTicket';
+import FilterSearch from '../../components/admin/FilterSearch';
+import TicketList from '../../components/admin/TicketList';
+import FlightUpdate from '../../components/admin/FlightUpdate';
 
 import { AuthContext } from '../../shared/context/auth-context';
 import LoadingSpinner from '../../shared/components/LoadingSpinner';
@@ -40,7 +40,7 @@ const Flights = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.message);
+        setError(err.response.data.message);
         setShowFlightUpdate(false);
       });
   };
@@ -76,7 +76,7 @@ const Flights = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.message);
+        setError(err.response.data.message);
         setShowFilter(false);
       });
   };
@@ -111,7 +111,7 @@ const Flights = () => {
         },
       })
         .then((res) => setFlight(res.data))
-        .catch((err) => setError(err.message));
+        .catch((err) => setError(err.response.data.message));
     };
     fetchData();
     setIsLoading(false);
@@ -172,7 +172,7 @@ const Flights = () => {
         setFlightInfo(e);
         setShowTicketList(true);
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => setError(err.response.data.message));
   };
   const HandleData3 = (e) => {
     axios({
@@ -187,7 +187,7 @@ const Flights = () => {
         triggerLoading();
       })
       .catch((err) => {
-        setError(err.message);
+        setError(err.response.data.message);
       });
   };
 

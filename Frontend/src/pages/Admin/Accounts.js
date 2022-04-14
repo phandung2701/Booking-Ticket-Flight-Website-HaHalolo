@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useState, useEffect } from 'react';
 
-import Table from '../../components/Admin/Table';
+import Table from '../../components/admin/Table';
 
 import { AuthContext } from '../../shared/context/auth-context';
 import LoadingSpinner from '../../shared/components/LoadingSpinner';
@@ -38,7 +38,7 @@ const Accounts = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.message);
+        setError(err.response.data.message);
       });
   };
 
@@ -143,7 +143,7 @@ const Accounts = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.message);
+        setError(err.response.data.message);
       });
   };
 
@@ -165,7 +165,7 @@ const Accounts = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.message);
+        setError(err.response.data.message);
       });
   };
 
@@ -189,7 +189,7 @@ const Accounts = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.message);
+        setError(err.response.data.message);
       });
   };
 
@@ -204,7 +204,7 @@ const Accounts = () => {
         },
       })
         .then((res) => setAccountList(res.data))
-        .catch((err) => setError(err.message));
+        .catch((err) => setError(err.response.data.message));
     };
     fetchData();
     setIsLoading(false);
@@ -224,10 +224,9 @@ const Accounts = () => {
     <Fragment>
       <ErrorModal error={error} onClear={clearError} />
       <div>
-
-        <h2 className="page-header">Thông Tin Tài Khoản</h2>
-        <div className="row heading">
-          <div className="search-id">
+        <h2 className='page-header'>Thông Tin Tài Khoản</h2>
+        <div className='row heading'>
+          <div className='search-id'>
             <input
               className='admin-input'
               type='text'

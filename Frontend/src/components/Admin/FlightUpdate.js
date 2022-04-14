@@ -118,173 +118,173 @@ function FlightUpdate({
         triggerLoading();
       })
       .catch((err) => {
-        setError(err.message);
+        setError(err.response.data.message);
         triggerLoading();
       });
   };
 
   return showFlightUpdate ? (
-    <div className='Flight-Update'>
+    <div className="Flight-Update">
       <div
-        className='Flight-Update-overlay'
+        className="Flight-Update-overlay"
         ref={modalRef}
         onClick={closeModal}
       ></div>
-      <div className='updateFlight'>
+      <div className="updateFlight">
         {showUpdate ? (
           <h4>Sửa thông tin chuyến bay</h4>
         ) : (
           <h4>Thông Tin chuyến bay</h4>
         )}
-        <span className='updateFlight-list-item code'>
+        <span className="updateFlight-list-item code">
           Mã chuyến bay:{' '}
-          <span className='result'>{flightInfo.IdChuyenBay} </span>
+          <span className="result">{flightInfo.IdChuyenBay} </span>
         </span>
         {showUpdate ? (
-          <div className='Flight-information'>
-            <div className='updateFlight-list'>
-              <div className='form-field'>
+          <div className="Flight-information">
+            <div className="updateFlight-list">
+              <div className="form-field">
                 <input
-                  type='text'
-                  className='form-input'
-                  placeholder=' '
+                  type="text"
+                  className="form-input"
+                  placeholder=" "
                   autoFocus
                   value={HangHK}
                   onChange={(e) => setHangHK(e.target.value)}
                 />
-                <label htmlFor='name' className='form-label'>
+                <label htmlFor="name" className="form-label">
                   Hãng hàng không
-                  <span className='star'> *</span>
+                  <span className="star"> *</span>
                 </label>
-                <span className='message-error'></span>
+                <span className="message-error"></span>
               </div>
-              <div className='form-field'>
+              <div className="form-field">
                 <input
-                  type='text'
-                  className='form-input'
-                  placeholder=' '
+                  type="text"
+                  className="form-input"
+                  placeholder=" "
                   value={SHMayBay}
                   onChange={(e) => setMayBay(e.target.value)}
                 />
-                <label htmlFor='name' className='form-label'>
+                <label htmlFor="name" className="form-label">
                   Số hiệu máy bay
-                  <span className='star'> *</span>
+                  <span className="star"> *</span>
                 </label>
-                <span className='message-error'></span>
+                <span className="message-error"></span>
               </div>
             </div>
-            <div className='updateFlight-list'>
-              <div className='form-field'>
+            <div className="updateFlight-list">
+              <div className="form-field">
                 <input
-                  type='text'
-                  className='form-input'
-                  placeholder=' '
+                  type="text"
+                  className="form-input"
+                  placeholder=" "
                   value={DiaDiemKhoiHanh}
                   onChange={(e) => setDDKhoiHanh(e.target.value)}
                 />
-                <label htmlFor='name' className='form-label'>
+                <label htmlFor="name" className="form-label">
                   Địa điểm khởi hành
-                  <span className='star'> *</span>
+                  <span className="star"> *</span>
                 </label>
-                <span className='message-error'></span>
+                <span className="message-error"></span>
               </div>
-              <div className='form-field'>
+              <div className="form-field">
                 <input
-                  type='text'
-                  className='form-input'
-                  placeholder=' '
+                  type="text"
+                  className="form-input"
+                  placeholder=" "
                   value={DiaDiemHaCanh}
                   onChange={(e) => setDDHaCanh(e.target.value)}
                 />
-                <label htmlFor='name' className='form-label'>
+                <label htmlFor="name" className="form-label">
                   Địa điểm hạ cánh
-                  <span className='star'> *</span>
+                  <span className="star"> *</span>
                 </label>
-                <span className='message-error'></span>
+                <span className="message-error"></span>
               </div>
             </div>
-            <div className='updateFlight-list'>
-              <div className='form-field time'>
+            <div className="updateFlight-list">
+              <div className="form-field time">
                 <DatePicker
                   selected={Date.parse(tgKhoiHanh)}
                   onChange={(date) => setTGKhoiHanh(date)}
-                  className='form-input'
+                  className="form-input"
                   showTimeSelect
-                  dateFormat='MM/dd/yyyy h:mm aa'
+                  dateFormat="MM/dd/yyyy h:mm aa"
                 />
-                <label htmlFor='name' className='form-label'>
+                <label htmlFor="name" className="form-label">
                   Thời gian khởi hành
-                  <span className='star'> *</span>
+                  <span className="star"> *</span>
                 </label>
-                <span className='message-error'></span>
+                <span className="message-error"></span>
               </div>
-              <div className='form-field time'>
+              <div className="form-field time">
                 <DatePicker
                   selected={Date.parse(tgHaCanh)}
                   onChange={(date) => setTGHaCanh(date)}
-                  className='form-input'
+                  className="form-input"
                   showTimeSelect
-                  dateFormat='MM/dd/yyyy h:mm aa'
+                  dateFormat="MM/dd/yyyy h:mm aa"
                 />
-                <label htmlFor='name' className='form-label'>
+                <label htmlFor="name" className="form-label">
                   Thời gian hạ cánh
-                  <span className='star'> *</span>
+                  <span className="star"> *</span>
                 </label>
-                <span className='message-error'></span>
+                <span className="message-error"></span>
               </div>
             </div>
           </div>
         ) : (
-          <div className='Flight-information'>
-            <div className='updateFlight-list'>
-              <span className='updateFlight-list-item'>
+          <div className="Flight-information">
+            <div className="updateFlight-list">
+              <span className="updateFlight-list-item">
                 Hãng hàng không:{' '}
-                <span className='result'>{flightInfo.HangHK} </span>
+                <span className="result">{flightInfo.HangHK} </span>
               </span>
-              <span className='updateFlight-list-item'>
+              <span className="updateFlight-list-item">
                 Số hiệu máy bay:{' '}
-                <span className='result'>{flightInfo.SHMayBay}</span>
+                <span className="result">{flightInfo.SHMayBay}</span>
               </span>
             </div>
-            <div className='updateFlight-list'>
-              <span className='updateFlight-list-item'>
+            <div className="updateFlight-list">
+              <span className="updateFlight-list-item">
                 Đia điểm khởi hành:{' '}
-                <span className='result'>{flightInfo.DiaDiemKhoiHanh}</span>
+                <span className="result">{flightInfo.DiaDiemKhoiHanh}</span>
               </span>
-              <span className='updateFlight-list-item'>
+              <span className="updateFlight-list-item">
                 Địa điểm hạ cánh:{' '}
-                <span className='result'>{flightInfo.DiaDiemHaCanh}</span>
+                <span className="result">{flightInfo.DiaDiemHaCanh}</span>
               </span>
             </div>
-            <div className='updateFlight-list'>
-              <span className='updateFlight-list-item'>
+            <div className="updateFlight-list">
+              <span className="updateFlight-list-item">
                 Thời gian khởi hành:{' '}
-                <span className='result'>{flightInfo.ThoiGianKhoiHanh}</span>
+                <span className="result">{flightInfo.ThoiGianKhoiHanh}</span>
               </span>
-              <span className='updateFlight-list-item'>
+              <span className="updateFlight-list-item">
                 Thời gian hạ cánh:{' '}
-                <span className='result'>{flightInfo.ThoiGianHaCanh} </span>
+                <span className="result">{flightInfo.ThoiGianHaCanh} </span>
               </span>
             </div>
           </div>
         )}
         {/*button */}
         {showUpdate ? (
-          <div className='btn-update-flight'>
-            <span className='btn-success' onClick={handleGetData}>
+          <div className="btn-update-flight">
+            <span className="btn-success" onClick={handleGetData}>
               Xác nhận
             </span>
-            <span className='btn-delete' onClick={() => setShowUpdate(false)}>
+            <span className="btn-delete" onClick={() => setShowUpdate(false)}>
               Hủy
             </span>
           </div>
         ) : (
-          <div className='btn-update-flight'>
-            <span className='btn-success' onClick={() => setShowUpdate(true)}>
+          <div className="btn-update-flight">
+            <span className="btn-success" onClick={() => setShowUpdate(true)}>
               Sửa
             </span>
             <span
-              className='btn-delete'
+              className="btn-delete"
               onClick={() => setShowFlightUpdate(false)}
             >
               Thoát

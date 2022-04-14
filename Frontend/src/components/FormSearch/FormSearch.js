@@ -5,7 +5,7 @@ import TimKiemNhieuChang from './TimKiemNhieuChang';
 import TimKiemMotChieu from './TimKiemMotChieu';
 import { ThemeContext } from '../../shared/context/ThemeProvider';
 
-import './FormSearch.css';
+import './formSearch.css';
 
 function FormSearch({ setIsLoading, setError }) {
   const { theme, toggleTheme } = useContext(ThemeContext);

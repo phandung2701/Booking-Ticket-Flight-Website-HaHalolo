@@ -14,7 +14,7 @@ import Authentication from './pages/Authentication';
 import Admin from './pages/Admin';
 import NotFound from './pages/NotFound';
 
-import Layout from './components/Admin/Layout';
+import Layout from './components/admin/Layout';
 import LoadingSpinner from './shared/components/LoadingSpinner';
 
 // const Home = React.lazy(() => import('./pages/Home'));
@@ -41,42 +41,42 @@ const App = () => {
 
   if (isAdmin !== '0' && isAdmin !== null) {
     adminRoutes = (
-      <Route path="/admin" element={<Admin />}>
+      <Route path='/admin' element={<Admin />}>
         <Route
-          path="dashboard"
+          path='dashboard'
           element={<Layout location={'/admin/dashboard'} />}
         />
         <Route
-          path="flights"
+          path='flights'
           element={<Layout location={'/admin/flights'} />}
         />
         <Route
-          path="add-flight"
+          path='add-flight'
           element={<Layout location={'/admin/add-flight'} />}
         />
         <Route
-          path="accounts"
+          path='accounts'
           element={<Layout location={'/admin/accounts'} />}
         />
         <Route
-          path="passengers"
+          path='passengers'
           element={<Layout location={'/admin/passengers'} />}
         />
         <Route
-          path="invoice-detail"
+          path='invoice-detail'
           element={<Layout location={'/admin/invoice-detail'} />}
         />
       </Route>
     );
   } else {
     adminRoutes = (
-      <Route path="/admin" element={<Admin />}>
-        <Route path="dashboard" element={<Navigate to="/" />} />
-        <Route path="customers" element={<Navigate to="/" />} />
-        <Route path="products" element={<Navigate to="/" />} />
-        <Route path="accounts" element={<Navigate to="/" />} />
-        <Route path="passengers" element={<Navigate to="/" />} />
-        <Route path="invoice-detail" element={<Navigate to="/" />} />
+      <Route path='/admin' element={<Admin />}>
+        <Route path='dashboard' element={<Navigate to='/' />} />
+        <Route path='customers' element={<Navigate to='/' />} />
+        <Route path='products' element={<Navigate to='/' />} />
+        <Route path='accounts' element={<Navigate to='/' />} />
+        <Route path='passengers' element={<Navigate to='/' />} />
+        <Route path='invoice-detail' element={<Navigate to='/' />} />
       </Route>
     );
   }
@@ -84,39 +84,39 @@ const App = () => {
   if (token) {
     routes = (
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/result-week/*" element={<Result flag={0} />} />
-        <Route path="/result-month/*" element={<Result flag={1} />} />
-        <Route path="/booking" element={<Booking />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/result-week/*' element={<Result flag={0} />} />
+        <Route path='/result-month/*' element={<Result flag={1} />} />
+        <Route path='/booking' element={<Booking />} />
 
-        <Route path="/authentication" element={<Navigate to="/" />} />
+        <Route path='/authentication' element={<Navigate to='/' />} />
 
-        <Route path="/user/:uid" element={<User />} />
+        <Route path='/user/:uid' element={<User />} />
 
-        <Route path="/admin" element={<NotFound />} />
+        <Route path='/admin' element={<NotFound />} />
         {adminRoutes}
 
-        <Route path="/notfound" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/notfound" />} />
+        <Route path='/notfound' element={<NotFound />} />
+        <Route path='*' element={<Navigate to='/notfound' />} />
       </Routes>
     );
   } else {
     routes = (
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/result-week/*" element={<Result flag={0} />} />
-        <Route path="/result-month/*" element={<Result flag={1} />} />
-        <Route path="/booking" element={<Booking />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/result-week/*' element={<Result flag={0} />} />
+        <Route path='/result-month/*' element={<Result flag={1} />} />
+        <Route path='/booking' element={<Booking />} />
 
-        <Route path="/authentication" element={<Authentication />} />
+        <Route path='/authentication' element={<Authentication />} />
 
-        <Route path="/user/:uid" element={<User />} />
+        <Route path='/user/:uid' element={<User />} />
 
-        <Route path="/admin" element={<NotFound />} />
+        <Route path='/admin' element={<NotFound />} />
         {adminRoutes}
 
-        <Route path="/notfound" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/notfound" />} />
+        <Route path='/notfound' element={<NotFound />} />
+        <Route path='*' element={<Navigate to='/notfound' />} />
       </Routes>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect, useContext } from 'react';
 
-import Table from '../../components/Admin/Table';
-import UpdatePassenger from '../../components/Admin/UpdatePassenger';
+import Table from '../../components/admin/Table';
+import UpdatePassenger from '../../components/admin/UpdatePassenger';
 
 import { AuthContext } from '../../shared/context/auth-context';
 import LoadingSpinner from '../../shared/components/LoadingSpinner';
@@ -37,7 +37,7 @@ const InvoiceDetail = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.message);
+        setError(err.response.data.message);
         setShowUpdate(false);
       });
   };
@@ -62,7 +62,7 @@ const InvoiceDetail = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.message);
+        setError(err.response.data.message);
         // setShowFilter(false);
       });
   };
@@ -88,7 +88,7 @@ const InvoiceDetail = () => {
         },
       })
         .then((res) => setPassenger(res.data))
-        .catch((err) => setError(err.message));
+        .catch((err) => setError(err.response.data.message));
     };
     fetchData();
     setIsLoading(false);
@@ -136,26 +136,26 @@ const InvoiceDetail = () => {
         setError={setError}
       />
       <div>
-        <h2 className="page-header">Thông Tin Chi Tiết Hóa Đơn</h2>
-        <div className="row">
-          <div className="search-id">
+        <h2 className='page-header'>Thông Tin Chi Tiết Hóa Đơn</h2>
+        <div className='row'>
+          <div className='search-id'>
             <input
-              className="admin-input"
-              type="text"
-              placeholder="Nhập ID"
+              className='admin-input'
+              type='text'
+              placeholder='Nhập ID'
               onKeyUp={onInputKeyUp}
             />
-            <i className="bx bx-search"></i>
+            <i className='bx bx-search'></i>
           </div>
         </div>
-        <div className="row">
-          <div className="col-12">
-            <div className="page-card">
-              <div className="page-card__body">
+        <div className='row'>
+          <div className='col-12'>
+            <div className='page-card'>
+              <div className='page-card__body'>
                 {isLoading && <LoadingSpinner />}
                 {!isLoading && passenger && (
                   <Table
-                    limit="10"
+                    limit='10'
                     headData={customerTableHead}
                     renderHead={(item, index) => renderHead(item, index)}
                     bodyData={passenger}
